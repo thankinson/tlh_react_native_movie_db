@@ -8,27 +8,44 @@ import Buttons from "../Components/Ui/Button";
 import TextTitle from "../Components/textComponents/textTitle";
 import SubTitle from "../Components/textComponents/SubTitle";
 import InputText from "../Components/textComponents/InputText";
+// validation
+import PasswordCheck from "../Components/Validation/PasswordCheck";
 
 export default function SignUpScreen(){
   const [userName, setUserName ] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [passCheck, setPassCheck] = useState(false)
   const [email, setEmail] = useState('');
+  const [user, setUser ]= useState([])
 
   function onSignUpHandler(){
-
+    
     if ((userName === '') || (password === '') || (confirmPassword === '') || (email === '')){
       Alert.alert('Sign Up failed','Please check details and try again', [
         {
           text: 'Close Window',
-          // onPress: ()=> Alert.alert('Cancel Pressed'), // use this for confirm delete later
           style: 'cancel',
         }])
-    } else {
-      console.log(`username: ${userName}`)
-      console.log(`password: ${password}`)
-    }
-  };
+    } else if (password != confirmPassword){
+        Alert.alert('Password Incorect','Please check and confirm passwords are correct', [
+          {
+            text: 'Close Window',
+            style: 'cancel',
+          }])
+      } else {
+        setUser([
+          {
+            username: userName,
+            email: email,
+            password : password,
+          }
+        ])
+      }
+      console.log(user)
+
+    };
+  
 
 
   return (
@@ -54,6 +71,11 @@ export default function SignUpScreen(){
                 defaultText="Confirm Password" 
                 setLogin={setConfirmPassword}  
                 secret={true}/>
+          <PasswordCheck 
+          password={password} 
+          confirmPassword={confirmPassword}
+          setPassCheck={setPassCheck}
+          />
           <Buttons onPress={onSignUpHandler} style={styles.buttonStyle}>Sign Up</Buttons>
     </FlexScreen>
   )
