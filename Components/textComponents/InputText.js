@@ -1,12 +1,14 @@
 import { View, TextInput, StyleSheet } from "react-native";
 
-export default function InputText({defaultText, setLogin, secret}){
+export default function InputText({defaultText, setEvent, secret}){
 
   return(
-    <View style={styles.textInput}>
+    <View style={styles.container}>
       <TextInput 
+        style={styles.fontStyle}
+        textAlign={'center'}
         placeholder={defaultText}
-        onChangeText={setLogin}
+        onChangeText={setEvent}
         secureTextEntry={secret}
         />
     </View>
@@ -14,7 +16,7 @@ export default function InputText({defaultText, setLogin, secret}){
 };
 
 const styles = StyleSheet.create({
-  textInput:{
+  container:{
     backgroundColor: 'white',
     borderRadius: 8,
     width: 250,
@@ -22,4 +24,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     elevation: 5
   },
+  fontStyle: {
+   width: '100%'
+  }
 })

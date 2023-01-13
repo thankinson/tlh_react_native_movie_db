@@ -54,22 +54,22 @@ export default function SignUpScreen(){
         <SubTitle>Username:</SubTitle>
         <InputText  
                 defaultText="Enter Username" 
-                setLogin={setUserName}  
+                setEvent={setUserName}  
                 />
         <SubTitle>Email:</SubTitle>
         <InputText  
                 defaultText="Enter Email" 
-                setLogin={setEmail}  
+                setEvent={setEmail}  
                 />
         <SubTitle>Password:</SubTitle>
         <InputText  
                 defaultText="Enter Password" 
-                setLogin={setPassword}  
+                setEvent={setPassword}  
                 secret={true}/>
         <SubTitle>Confirm Password:</SubTitle>
         <InputText  
                 defaultText="Confirm Password" 
-                setLogin={setConfirmPassword}  
+                setEvent={setConfirmPassword}  
                 secret={true}/>
           <PasswordCheck 
           password={password} 

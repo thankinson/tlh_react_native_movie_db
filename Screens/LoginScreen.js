@@ -40,8 +40,7 @@ export default function LoginScreen({navigation}){
             <SubTitle style={styles.fontSize}>Username</SubTitle>
               <InputText 
                 defaultText="Enter Username" 
-                setLogin={setUserName} 
-                // secret={false}
+                setEvent={setUserName} 
                 />
           </View>
 
@@ -49,7 +48,7 @@ export default function LoginScreen({navigation}){
             <SubTitle style={styles.fontSize}>Password</SubTitle>
             <InputText 
               defaultText="Enter Password" 
-              setLogin={setPassword}  
+              setEvent={setPassword}  
               secret={true}
               />
           </View>
