@@ -17,7 +17,6 @@ export default function LoginScreen({navigation}){
   }
 
   function onLoginHandler(){
-
     if ((userName === '') || (password === '')){
       Alert.alert('Login failed','Please enter username or password', [
         {
@@ -63,6 +62,9 @@ export default function LoginScreen({navigation}){
 };
 
 const styles = StyleSheet.create({
+  screen: {
+    justifyContent: 'center'
+  },
   loginConatiner:{
     marginVertical: 12,
     marginHorizontal: 24,

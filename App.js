@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 
@@ -14,6 +15,7 @@ import MovieScreen from "./Screens/MovieScreen";
 
 export default function App() {
   const Drawer = createDrawerNavigator();
+  const [bool, setBool] = useState(false)
 
   return (
     <FlexScreen>
@@ -23,7 +25,7 @@ export default function App() {
           <Drawer.Screen name="Login" component={LoginScreen}/>
           <Drawer.Screen name="Sign Up" component={SignUpScreen} />
           <Drawer.Screen name="Find a film" component={MovieSearchScreen} />
-          <Drawer.Screen name="Movie" component={MovieScreen} />
+          <Drawer.Screen name="Movie" component={MovieScreen} /> 
         </Drawer.Navigator>
       </NavigationContainer>
     </FlexScreen>

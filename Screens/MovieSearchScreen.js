@@ -1,45 +1,65 @@
 import { useState } from "react";
 import { StyleSheet,ScrollView } from "react-native";
 
-import FlexScreen from "../Components/Ui/FlexScreen";
+// import {API_URL} from '@env'
 
-import InputText from "../Components/textComponents/InputText";
+// ui
+import FlexScreen from "../Components/Ui/FlexScreen";
 import Buttons from "../Components/Ui/Button";
+// Text
+import InputText from "../Components/textComponents/InputText";
 
 export default function MovieSearchScreen({navigation}){
   const [search, setSearch] = useState('');
   const [movieResult, setMovieResult] = useState('');
-  const [movie, setMovie] = useState()
-
-  // const MovieApi = process.env.Api_Key
-console.log(search)
+  const [movieSelect, setMovieSelect] = useState({
+    id: '', 
+    title: '', 
+    poster: '',
+    overview: ''
+  })
+  
   async function SearchMovieApi(){
     try {     
-      const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=4be4997946f0bc9f4dee48a492824044&query=${search}`);
+      const response = await fetch(`${search}`);
+      // const response = await fetch(`${API_URL}${search}`);
       const data = await response.json();
       setMovieResult(data.results);
       } catch(errorLog){
           console.log(errorLog);
       }
-  }
+  };
+  
+  function onSearchHandler(e){
+    e.preventDefault()
+    SearchMovieApi()
+  };
 
-  function onPressHandler(){
-    console.log(`Movie is ${movie.original_title}`)
-    // navigation.navigate('Movie',{
-    //   title: movie.original_title
-    // })
-    }    
-
-  return(<FlexScreen style={styles.screen}>
+  function navigateTo(movie){
+    navigation.navigate(
+  'Movie', 
+    {
+      film: {
+        id: movie.id, 
+        title: movie.title, 
+        poster: movie.poster_path,
+        overview: movie.overview
+      }
+    }
+  )};
+  
+  return(
+  <FlexScreen style={styles.screen}>
     <InputText setEvent={setSearch} />
-    <Buttons onPress={SearchMovieApi}>Search</Buttons>
+    <Buttons onPress={onSearchHandler}>Search</Buttons>
     <ScrollView>
-      {movieResult && movieResult.map((movie)=> 
-        <Buttons 
-          onPress={onPressHandler} 
-           textSize={styles.textSize} 
-           style={styles.buttonStyle} 
-           key={movie.id}>{movie.original_title}</Buttons>)}
+      {movieResult && movieResult.map((movie)=>
+          <Buttons 
+            onPress={()=> navigateTo(movie)} 
+            textSize={styles.textSize} 
+            style={styles.buttonStyle} 
+            key={movie.id}>{movie.original_title}</Buttons>
+        )}
     </ScrollView>
     </FlexScreen>
   )

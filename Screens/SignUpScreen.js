@@ -46,8 +46,6 @@ export default function SignUpScreen(){
 
     };
   
-
-
   return (
     <FlexScreen style={styles.screen}>
         <TextTitle>Sign Up Page</TextTitle>
@@ -83,7 +81,8 @@ export default function SignUpScreen(){
 
 const styles = StyleSheet.create({
   screen:{
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   buttonStyle:{
     marginTop: 30
