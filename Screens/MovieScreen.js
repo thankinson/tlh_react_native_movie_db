@@ -1,4 +1,4 @@
-import { Text, StyleSheet, Image, View } from "react-native";
+import { StyleSheet } from "react-native";
 // ui
 import Buttons from "../Components/Ui/Button";
 import FlexScreen from "../Components/Ui/FlexScreen";
@@ -6,22 +6,32 @@ import FlexScreen from "../Components/Ui/FlexScreen";
 import Paragraph from "../Components/textComponents/Paragraph";
 import SubTitle from "../Components/textComponents/SubTitle";
 import TextTitle from "../Components/textComponents/textTitle";
+// images
+import Images from "../Components/images/Images";
 
 export default function MovieScreen({ route, navigation }){
   const { film } = route.params;
   
-  return (<FlexScreen styles={styles.screen}>
-    <View style={styles.screen} > 
-      <Image style={styles.poster} source={{uri: `https://image.tmdb.org/t/p/w300${film.poster}`}} />
-      <TextTitle>{film.title}</TextTitle>
-      <SubTitle>Synopsis</SubTitle>
-      <Paragraph>{film.overview}</Paragraph>
-      <Buttons>Add To db</Buttons>
-    </View>
-  </FlexScreen>)
+  return (
+    <FlexScreen styles={styles.screen}>
+        <FlexScreen style={styles.screen} >
+          <Images film={film.poster} />
+          <TextTitle>{film.title}</TextTitle>
+          <SubTitle>Synopsis</SubTitle>
+          <Paragraph>{film.overview}</Paragraph>
+          <Buttons>Add To db</Buttons>
+        </FlexScreen>
+       
+    </FlexScreen>
+  );
+};
 
-}
 const styles = StyleSheet.create({
+  container:{
+    width: '90%',
+    alignItems: 'center',
+    marginTop: 5,
+  },
   screen:{
     flex: 1,
     alignItems: 'center'
@@ -31,4 +41,4 @@ const styles = StyleSheet.create({
     minHeight: '60%',
     marginTop: 10
   }
-})
+});

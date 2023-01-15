@@ -7,7 +7,7 @@ export default function PasswordCheck({password, confirmPassword, setPassCheck})
 } else {
   setPassCheck(true)
   return <SubTitle style={styles.isTrue}>Password Match</SubTitle>
-}}
+}};
 
 const styles = StyleSheet.create({
   isTrue:{
@@ -16,5 +16,4 @@ const styles = StyleSheet.create({
   isFalse:{
     color: 'red' 
   }
-
 })

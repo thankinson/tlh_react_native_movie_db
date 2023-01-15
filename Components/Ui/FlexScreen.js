@@ -7,6 +7,5 @@ export default function FlexScreen({children, style}){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    
   }
 })

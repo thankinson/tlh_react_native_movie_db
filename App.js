@@ -26,6 +26,8 @@ export default function App() {
           <Drawer.Screen name="Sign Up" component={SignUpScreen} />
           <Drawer.Screen name="Find a film" component={MovieSearchScreen} />
           <Drawer.Screen name="Movie" component={MovieScreen} /> 
+          <Drawer.Screen name="TestScreen" component={MovieScreen} /> 
+
         </Drawer.Navigator>
       </NavigationContainer>
     </FlexScreen>
