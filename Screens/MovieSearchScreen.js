@@ -8,24 +8,18 @@ import Buttons from "../Components/Ui/Button";
 // Text
 import InputText from "../Components/textComponents/InputText";
 import MovieSearchList from "../Components/lists/MovieSearchList";
+// api call
+import MovieService from "../service/service";
 
 export default function MovieSearchScreen({navigation}){
   const [search, setSearch] = useState('');
   const [movieResult, setMovieResult] = useState('');
-
-  async function SearchMovieApi(){
-    try {     
-      const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=4be4997946f0bc9f4dee48a492824044&query=${search}`);
-      const data = await response.json();
-      setMovieResult(data.results);
-      } catch(errorLog){
-          console.log(errorLog);
-      }
-  };
-  
-  function onSearchHandler(e){
+ 
+  async function onSearchHandler(e){
     e.preventDefault()
-    SearchMovieApi()
+    let searchMovie = new MovieService(search)
+    const data = await searchMovie.searchMovie()
+    setMovieResult(data)
   };
 
   function navigateTo(movie){

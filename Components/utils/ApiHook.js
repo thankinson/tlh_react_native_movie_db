@@ -2,7 +2,6 @@
 // It didnt Worker. will come back to tis at a later date and see if i can find a way to get it to work
 
 import { View, StyleSheet } from "react-native";
-import { call } from "react-native-reanimated"
 import InputText from "../textComponents/InputText";
 import Buttons from "../Ui/Button";
 
