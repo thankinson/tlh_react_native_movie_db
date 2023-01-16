@@ -4,26 +4,26 @@ import { Text, StyleSheet, Pressable, View } from "react-native";
 export default function Buttons({children, onPress, style, textSize}){
 
   return (
-    <View style={[styles.buttonContainer, style]}>
+ 
       <Pressable 
         onPress={onPress} 
         android_ripple={{color: '#ccc'}} 
-        style={({pressed})=> pressed && styles.pressed}>
+        style={[styles.buttonContainer, style, ({pressed})=> pressed && styles.pressed]}>
         <Text style={[styles.fontStyle, textSize]} >{children}</Text>
       </Pressable>
-    </View>
-  )
+  );
 };
 
 const styles = StyleSheet.create({
   buttonContainer:{
     borderRadius: 8,
-    // borderWidth: 2,
-    width: 250,
+    width: '80%',
     backgroundColor: 'white',
     marginHorizontal: 24,
-    marginVertical: 12,
-    elevation: 10,
+    marginVertical: 6,
+    justifyContent:'center',
+    alignItems: 'center',
+    elevation: 5,
     shadowColor: 'black',
     shadowOpacity: 0.25,
     shadowOffset: {width: 0, height: 2},

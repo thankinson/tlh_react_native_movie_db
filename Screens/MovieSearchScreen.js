@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 
 // import {API_URL} from '@env'
 // ui
@@ -41,24 +41,21 @@ export default function MovieSearchScreen({navigation}){
         <InputText setEvent={setSearch} />
         <Buttons onPress={onSearchHandler}>Search</Buttons>
       </View>
-      <MovieSearchList 
-        movieResult={movieResult}
-        navigateTo={navigateTo}
-        />
+      <View>
+        <MovieSearchList 
+          data={movieResult}
+          navigateTo={navigateTo}
+          />
+        </View >
       </FlexScreen>
     ) 
 };
 
 const styles = StyleSheet.create({
   screen: {
-    marginTop: 10,
+    marginTop: 5,
     width: '100%',
     alignItems: 'center'
   },
-  buttonStyle:{
-    width: '90%'
-  },
-  textSize:{
-    fontSize: 12
-  }
+
 });

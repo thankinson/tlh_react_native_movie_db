@@ -1,30 +1,38 @@
-import { ScrollView, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet, View, FlatList } from "react-native";
 
 import Buttons from "../Ui/Button";
 
-export default function MovieSearchList({navigateTo, movieResult}){
+export default function MovieSearchList({navigateTo, data}){
 
-  return (
-      <ScrollView showsVerticalScrollIndicator={false}>
-      {movieResult && movieResult.map((movie)=>
+  return(
+    <View>
+      <FlatList 
+        data={data}
+        renderItem={({item})=>
           <Buttons 
-            onPress={()=> navigateTo(movie)} 
+            onPress={()=> navigateTo(item)} 
             textSize={styles.textSize} 
-            style={styles.buttonStyle} 
-            key={movie.id}>{movie.original_title}</Buttons>
-        )}
-    </ScrollView> 
-  );
+            style={styles.buttonStyle} >
+            {item.original_title}
+          </Buttons>}
+      keyExtractor={item => item.id}
+      />
+    </View>
+  )
 };
 
 const styles = StyleSheet.create({
-  buttonStyle:{
-    width: 350,
+  container:{
+    // flexGrow: 1,
+    alignItems: 'center',
+    width: '100%'
   },
+  // screen:{
+  //   width: '100%',
+  //   alignItems: 'center',
+  // },
   textSize:{
     fontSize: 12
   },
-  contentContainer:{
-  
-  }
+
 });
