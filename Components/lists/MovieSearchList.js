@@ -4,7 +4,7 @@ export default function MovieSearchList({onPress, item}){
   return ( 
     <View style={styles.buttonContainer}>
       <Pressable 
-        onPress={onPress(item)} 
+        onPress={()=>onPress(item)} 
         android_ripple={{color: '#ccc'}} 
         style={[styles.button, ({pressed})=> pressed && styles.pressed]}>
         <View style={styles.innerContainer}>

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 
-// import {API_URL} from '@env'
 // ui
 import FlexScreen from "../Components/Ui/FlexScreen";
 import Buttons from "../Components/Ui/Button";
@@ -15,7 +14,7 @@ export default function MovieSearchScreen({navigation}){
   const [search, setSearch] = useState('');
   const [movieResult, setMovieResult] = useState('');
  
-  function navigateTo(item){
+  const navigateTo =(item)=> {
     navigation.navigate(
       'Movie', 
         {
