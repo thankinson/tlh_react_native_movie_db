@@ -11,9 +11,8 @@ import Images from "../Components/images/Images";
 
 export default function MovieScreen({ route, navigation }){
   const { film } = route.params;
-  
   return (
-    <FlexScreen styles={styles.screen}>
+
         <FlexScreen style={styles.screen} >
           <Images film={film.poster} />
           <TextTitle>{film.title}</TextTitle>
@@ -21,8 +20,7 @@ export default function MovieScreen({ route, navigation }){
           <Paragraph>{film.overview}</Paragraph>
           <Buttons>Add To db</Buttons>
         </FlexScreen>
-       
-    </FlexScreen>
+
   );
 };
 

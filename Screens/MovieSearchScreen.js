@@ -22,15 +22,15 @@ export default function MovieSearchScreen({navigation}){
     setMovieResult(data)
   };
 
-  function navigateTo(movie){
+  function navigateTo(item){
     navigation.navigate(
       'Movie', 
         {
           film: {
-            id: movie.id, 
-            title: movie.title, 
-            poster: movie.poster_path,
-            overview: movie.overview
+            id: item.id, 
+            title: item.title, 
+            poster: item.poster_path,
+            overview: item.overview
           }
         });
   };
