@@ -17,10 +17,10 @@ export default function Buttons({children, onPress, style, textSize}){
 const styles = StyleSheet.create({
   buttonContainer:{
     borderRadius: 8,
-    width: '80%',
+    width: '100%',
     backgroundColor: 'white',
-    marginHorizontal: 24,
-    marginVertical: 6,
+    // marginHorizontal: 24,
+    // marginVertical: 6,
     justifyContent:'center',
     alignItems: 'center',
     elevation: 5,

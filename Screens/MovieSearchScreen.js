@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { FlatList, ScrollView, StyleSheet, View } from "react-native";
 
 // import {API_URL} from '@env'
 // ui
@@ -15,24 +15,24 @@ export default function MovieSearchScreen({navigation}){
   const [search, setSearch] = useState('');
   const [movieResult, setMovieResult] = useState('');
  
-  async function onSearchHandler(e){
-    e.preventDefault()
-    let searchMovie = new MovieService(search)
-    const data = await searchMovie.searchMovie()
-    setMovieResult(data)
-  };
-
   function navigateTo(item){
     navigation.navigate(
       'Movie', 
         {
           film: {
             id: item.id, 
-            title: item.title, 
+            title: item.original_title, 
             poster: item.poster_path,
             overview: item.overview
           }
         });
+  };
+
+  async function onSearchHandler(e){
+    e.preventDefault()
+    let searchMovie = new MovieService(search)
+    const data = await searchMovie.searchMovie()
+    setMovieResult(data)
   };
   
   return (
@@ -41,12 +41,15 @@ export default function MovieSearchScreen({navigation}){
         <InputText setEvent={setSearch} />
         <Buttons onPress={onSearchHandler}>Search</Buttons>
       </View>
-      <View>
-        <MovieSearchList 
-          data={movieResult}
-          navigateTo={navigateTo}
-          />
-        </View >
+      <FlatList 
+        style={styles.list}
+        data={movieResult}
+        renderItem={({item}) => 
+          <MovieSearchList 
+            item={item} 
+            onPress={navigateTo} /> }
+        keyExtractor={item => item.id}
+      />
       </FlexScreen>
     ) 
 };
@@ -57,5 +60,8 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center'
   },
-
+  list:{
+    flexGrow: 1,
+    marginBottom: 90,
+  }
 });
