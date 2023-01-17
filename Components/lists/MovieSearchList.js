@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, View, FlatList } from "react-native";
+import { StyleSheet, View, FlatList } from "react-native";
 
 import Buttons from "../Ui/Button";
 
