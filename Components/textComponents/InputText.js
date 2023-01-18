@@ -1,9 +1,9 @@
 import { View, TextInput, StyleSheet } from "react-native";
 
-export default function InputText({defaultText, setEvent, secret}){
+export default function InputText({defaultText, setEvent, secret, style}){
 
   return(
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <TextInput 
         style={styles.fontStyle}
         textAlign={'center'}

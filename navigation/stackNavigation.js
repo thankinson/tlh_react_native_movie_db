@@ -12,7 +12,12 @@ export default function StackNavigation(){
   return (
     <>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator 
+          initialRouteName="Home"
+          screenOptions={{
+            headerStyle: {backgroundColor: Colors.primary001},
+            headerTintColor: 'white',
+            }}>
           <Stack.Screen 
             name="DrawerNav" 
             component={DrawerNavigation} 

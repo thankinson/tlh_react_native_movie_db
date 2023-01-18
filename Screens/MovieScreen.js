@@ -8,6 +8,8 @@ import SubTitle from "../Components/textComponents/SubTitle";
 import TextTitle from "../Components/textComponents/textTitle";
 // images
 import Images from "../Components/images/Images";
+// style
+import Colors from '../constants/GlobalStyles'
 
 export default function MovieScreen({ route, navigation }){
   const { film } = route.params;
@@ -16,9 +18,11 @@ export default function MovieScreen({ route, navigation }){
         <FlexScreen style={styles.screen} >
           <Images film={film.poster} />
           <TextTitle>{film.title}</TextTitle>
-          <SubTitle>Synopsis</SubTitle>
-          <Paragraph>{film.overview}</Paragraph>
-          <Buttons>Add To db</Buttons>
+          {/* <SubTitle>Synopsis</SubTitle> */}
+          {/* <Paragraph style={styles.paragraphText}>{film.overview}</Paragraph> */}
+          <Buttons>Add DVD to Collection</Buttons>
+          <Buttons>Add Blu-Ray to Collection</Buttons>
+
         </FlexScreen>
 
   );
@@ -32,11 +36,21 @@ const styles = StyleSheet.create({
   },
   screen:{
     flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: Colors.primary010
   },
   poster:{
     width: 300,
     minHeight: '60%',
     marginTop: 10
+  },
+  paragraphTextTitle: {
+    color: 'white',
+    fontSize: 20,
+    fontWeight: 'bold'
+  },
+  paragraphText:{
+    color: 'white',
+    fontSize: 16
   }
 });

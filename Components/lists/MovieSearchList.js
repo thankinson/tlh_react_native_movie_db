@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   buttonContainer:{
     flex: 1,
     margin: 10,
-    width: '90%',
+    width: 330,
     height: 50,
     borderRadius: 8,
     elevation: 4,

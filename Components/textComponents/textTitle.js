@@ -12,12 +12,11 @@ const styles = StyleSheet.create({
   container:{
     alignItems: 'center',
     borderBottomColor: '#ccc',
-    borderBottomWidth: 1,
-    marginHorizontal: 24
   },
   title:{
-    fontSize: 18,
+    fontSize: 25,
     fontWeight: 'bold',
     padding: 5,
+    color: 'white'
   }
 })

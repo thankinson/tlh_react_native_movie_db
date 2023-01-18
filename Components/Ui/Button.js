@@ -1,10 +1,8 @@
-import { Text, StyleSheet, Pressable, View } from "react-native";
-
+import { Text, StyleSheet, Pressable } from "react-native";
 
 export default function Buttons({children, onPress, style, textSize}){
 
   return (
- 
       <Pressable 
         onPress={onPress} 
         android_ripple={{color: '#ccc'}} 
@@ -17,10 +15,10 @@ export default function Buttons({children, onPress, style, textSize}){
 const styles = StyleSheet.create({
   buttonContainer:{
     borderRadius: 8,
-    width: '100%',
+    width: '80%',
     backgroundColor: 'white',
-    // marginHorizontal: 24,
-    // marginVertical: 6,
+    marginHorizontal: 24,
+    marginVertical: 6,
     justifyContent:'center',
     alignItems: 'center',
     elevation: 5,
